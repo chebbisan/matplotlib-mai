@@ -2,10 +2,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 from math import sqrt
 import json
+import os
 
 
 def write_to_json_manual(x, y):
-    with open("results/manual.json", "w") as write_file:
+    directory = "results"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    
+    with open(f"{directory}/manual.json", "w") as write_file:
         write_file.write('{\n\t"x": [')
         for x_ in x:
             if x_ == x[-1]:
@@ -25,6 +30,11 @@ def write_to_json_lib(x, y):
     data = {}
     data["x"] = list(x)
     data["y"] = list(y)
+
+    directory = "results"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        
     with open("results/json_lib.json", "w") as write_file:
         json.dump(data, write_file, indent=4)
 
