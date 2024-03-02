@@ -26,14 +26,12 @@ def parse_args():
         xmax = int(params[3][7:])
 
     directory = params[1]
-
     return {'dir': directory,
             'xmin': xmin,
             'xmax': xmax}
 
 def main():
         file_params = parse_args()
-        
         directory = file_params['dir']
         if not(directory):
             return
@@ -44,8 +42,6 @@ def main():
             data = json.load(read_json)
 
         fig, ax = plt.subplots()
-        
-
         ax.plot(data['x'], data['y'])
         plt.xlim(xmin, xmax)
 
