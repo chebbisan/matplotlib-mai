@@ -17,7 +17,6 @@ def write_to_json_manual(x, y):
                 write_file.write(f'{str(x_)}],')
             else:
                 write_file.write(f'{str(x_)}, ')
-
         write_file.write('\n\t"y": [')
         for y_ in y:
             if y_ == y[-1]:
@@ -30,25 +29,19 @@ def write_to_json_lib(x, y):
     data = {}
     data["x"] = list(x)
     data["y"] = list(y)
-
     directory = "results"
     if not os.path.exists(directory):
-        os.makedirs(directory)
-        
+        os.makedirs(directory)    
     with open("results/json_lib.json", "w") as write_file:
         json.dump(data, write_file, indent=4)
 
-
 def init_params():
-
     xmin, xmax = -15, 5
     x = np.linspace(xmin, xmax, 50)
     y = np.empty_like(x)
-
     for i in range(len(x)):
         y[i] = (100 * sqrt(abs(1 - 0.01 * x[i]**2)) + 
                 0.01 + abs(x[i] + 10))
-        
     return x, y
 
 def main():
