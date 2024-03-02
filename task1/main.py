@@ -3,7 +3,6 @@ import numpy as np
 from math import sqrt
 import os
 
-
 def write_to_json_manual(x, y):
     directory = "results"
     if not os.path.exists(directory):
@@ -39,6 +38,5 @@ def main():
     ax.plot(x, y)
     plt.show()
     write_to_json_manual(x, y)
-
 
 main()
