@@ -26,7 +26,7 @@ def parse_args():
         xmax = int(params[3][7:])
 
     directory = params[1]
-    return {'dir': directory,
+    return {'dir': 'examples/' + directory,
             'xmin': xmin,
             'xmax': xmax}
 
