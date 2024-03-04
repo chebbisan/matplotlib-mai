@@ -14,7 +14,6 @@ def exists(path):
         return False
     return True
 
-
 def init_params():
     if not(exists('task_rcs.csv')):
         wget.download('https://jenyay.net/uploads/Student/Modelling/task_rcs.csv')
@@ -49,6 +48,5 @@ def main():
     plt.show()
 
     to_csv(frequency, wave_length, eda)
-
-    
+  
 main()
