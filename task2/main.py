@@ -26,7 +26,7 @@ def parse_args():
         xmax = int(params[3][7:])
 
     directory = params[1]
-    return {'dir': 'examples/' + directory,
+    return {'dir': directory,
             'xmin': xmin,
             'xmax': xmax}
 
@@ -35,8 +35,8 @@ def main():
         directory = file_params['dir']
         if not(directory):
             return
-        xmin = file_params['xmin'] if file_params['xmin'] else -15
-        xmax = file_params['xmax'] if file_params['xmax'] else 5
+        xmin = file_params['xmin'] if 'xmin' in file_params else -15
+        xmax = file_params['xmax'] if 'xmax' in file_params else 5
 
         with open(directory, 'r') as read_json:
             data = json.load(read_json)
