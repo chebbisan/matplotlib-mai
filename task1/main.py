@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from math import sqrt
 import os
 
 def write_to_json_manual(x, y):
@@ -28,7 +27,7 @@ def init_params():
     x = np.linspace(xmin, xmax, 50)
     y = np.empty_like(x)
     for i in range(len(x)):
-        y[i] = (100 * sqrt(abs(1 - 0.01 * x[i]**2)) + 
+        y[i] = (100 * np.sqrt(abs(1 - 0.01 * x[i]**2)) + 
                 0.01 + abs(x[i] + 10))
     return x, y
 
