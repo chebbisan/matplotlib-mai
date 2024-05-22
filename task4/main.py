@@ -24,7 +24,6 @@ def init_params():
     d = data[' D'][VARIANT - 1]
     fmin = data[' fmin'][VARIANT - 1]
     fmax = data[' fmax'][VARIANT - 1]
-
     return d, fmin, fmax
 
 def to_csv(freq, wave_len, eda):
@@ -36,8 +35,9 @@ def main():
     frequency = np.linspace(fmin, fmax, 100)
     eda = np.zeros_like(frequency)
     wave_length = np.zeros_like(frequency)
-    for i in range(len(frequency)):
-        calc = Calculate_EDA(diameter, frequency[i])
+    calc = Calculate_EDA(diameter, 1)
+    for i, freq in enumerate(frequency):
+        calc.update(freq)
         eda[i] = calc.result()
         wave_length[i] = calc.wave_length
         
